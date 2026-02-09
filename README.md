@@ -1,1 +1,1 @@
-"# laravel-snap_blog" 
+# laravel-snap_blog
