@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TestController;
 
 // ---Routes sans paramètres---
 // Route::get('/foo', function () {
@@ -20,23 +21,29 @@ Route::get('/welcome/{name}', function ($name) {
     return "Welcome " .$name;
 });
 
-Route::get('/users', function () {
-    $user = new stdClass(); //Objet vide pour le moment
-    $user->name = "Kodzovi Friedo FIANYO"; // On ajoute une propriété name à l'objet
-    $user->email = "fianyofriedo2@gmail.com"; // On ajoute une propriété email à l'objet
-    return response()->json($user); // On retourne l'objet $user sous form de JSON
-});
-
-//Créer les routes avec Get, Post, Put, Patch et Delete
-Route::get('/users', function () {
-    return response()->json(['success' => 'Méthode GET']);
-});
-
-// // Pour que le body de Postman soit pris en compte, il faut ajouter Request $request
-// Route::post('/users', function (Request $request) {
-//     return response()->json(['success' => 'Méthode POST']);
+// Route::get('/users', function () {
+//     $user = new stdClass(); //Objet vide pour le moment
+//     $user->name = "Kodzovi Friedo FIANYO"; // On ajoute une propriété name à l'objet
+//     $user->email = "fianyofriedo2@gmail.com"; // On ajoute une propriété email à l'objet
+//     return response()->json($user); // On retourne l'objet $user sous form de JSON
 // });
 
-Route::post('/users', function (Request $request) {
-    return $request->all(); //Récupérer tous les éléments 
-});
+// ---Sans utiliser de controller---
+// //Créer les routes avec Get, Post, Put, Patch et Delete
+// Route::get('/users', function () {
+//     return response()->json(['success' => 'Méthode GET']);
+// });
+
+// // // Pour que le body de Postman soit pris en compte, il faut ajouter Request $request
+// // Route::post('/users', function (Request $request) {
+// //     return response()->json(['success' => 'Méthode POST']);
+// // });
+
+// Route::post('/users', function (Request $request) {
+//     return $request->all(); //Récupérer tous les éléments 
+// });
+
+// ---Avec un controller---
+Route::get('/users', [TestController::class, 'getMethod']);
+
+Route::post('/users', [TestController::class, 'postMethod']);
