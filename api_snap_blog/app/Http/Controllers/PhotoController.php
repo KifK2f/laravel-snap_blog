@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use stdClass;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Photo;
 
 class PhotoController extends Controller
 {
@@ -45,11 +46,19 @@ class PhotoController extends Controller
             return response()->json(['errors' => $validator->errors()]); 
         }
 
-        // Récupérer tous les éléments du body de la requête
-        $photo = new stdClass(); // Créer un objet vide
-        $photo->title = $request->input('title'); // Récupérer le champ 'title' du body de la requête et l'ajouter à l'objet $photo
-        $photo->description = $request->input('description'); // Récupérer le champ 'description' du body de la requête et l'ajouter à l'objet $photo
-        return response()->json($photo); // retourner sous forme de JSON
+        // // Récupérer tous les éléments du body de la requête
+        // $photo = new stdClass(); // Créer un objet vide
+        // $photo->title = $request->input('title'); // Récupérer le champ 'title' du body de la requête et l'ajouter à l'objet $photo
+        // $photo->description = $request->input('description'); // Récupérer le champ 'description' du body de la requête et l'ajouter à l'objet $photo
+        // return response()->json($photo); // retourner sous forme de JSON
+
+        //Persister les données dans la base de données
+        Photo::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+        ]);
+        return response()->json(['success' => 'Photo crée avec succès']); // retourner un message de succès
+
     }
 
     /**

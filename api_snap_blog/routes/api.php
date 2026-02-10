@@ -51,6 +51,21 @@ Route::post('/users', [TestController::class, 'postMethod']);
 
 // Sans middelware
 // Route::post('/photos', [PhotoController::class, 'store']);
-// Avec middelware
-Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
+// // Avec middelware
+// Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
+
+// // Route de test pour voir ce que contient les variables d'environnement
+// Route::get('/env', function () {
+//     return response()->json([
+//         'connection' => env('DB_CONNECTION'),
+//         'host' => env('DB_HOST'),
+//         'port' => env('DB_PORT'),
+//         'database' => env('DB_DATABASE'),
+//         'username' => env('DB_USERNAME'),
+//         'password' => env('DB_PASSWORD'),
+//     ]);
+// });
+
+//Persister les données en bas de données
+Route::post('/photos', [PhotoController::class, 'store']);
 
