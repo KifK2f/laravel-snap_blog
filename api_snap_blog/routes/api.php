@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\PhotoController;
 
 // ---Routes sans paramètres---
 // Route::get('/foo', function () {
@@ -47,3 +48,9 @@ Route::get('/welcome/{name}', function ($name) {
 Route::get('/users', [TestController::class, 'getMethod']);
 
 Route::post('/users', [TestController::class, 'postMethod']);
+
+// Sans middelware
+// Route::post('/photos', [PhotoController::class, 'store']);
+// Avec middelware
+Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
+
