@@ -69,3 +69,4 @@ Route::post('/users', [TestController::class, 'postMethod']);
 //Persister les données en bas de données
 Route::post('/photos', [PhotoController::class, 'store']);
 
+Route::get('/photos', [PhotoController::class, 'index']);

@@ -12,9 +12,11 @@ class PhotoController extends Controller
     /**
      * Display a listing of the resource.
      */
+    //Récupérer tout le contenu de la table photos
     public function index()
     {
-        //
+        $photos = Photo::all(); // Récupérer tous les éléments de la table photos
+        return response()->json($photos); // Retourner les données sous forme de JSON
     }
 
     /**
