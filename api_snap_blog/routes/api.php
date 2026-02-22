@@ -45,9 +45,9 @@ Route::get('/welcome/{name}', function ($name) {
 // });
 
 // ---Avec un controller---
-Route::get('/users', [TestController::class, 'getMethod']);
+// Route::get('/users', [TestController::class, 'getMethod']);
 
-Route::post('/users', [TestController::class, 'postMethod']);
+// Route::post('/users', [TestController::class, 'postMethod']);
 
 // Sans middelware
 // Route::post('/photos', [PhotoController::class, 'store']);
@@ -67,6 +67,6 @@ Route::post('/users', [TestController::class, 'postMethod']);
 // });
 
 //Persister les données en bas de données
-Route::post('/photos', [PhotoController::class, 'store']);
+// Route::post('/photos', [PhotoController::class, 'store']);
 
-Route::get('/photos', [PhotoController::class, 'index']);
+// Route::get('/photos', [PhotoController::class, 'index']);
