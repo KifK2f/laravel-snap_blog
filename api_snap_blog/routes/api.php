@@ -70,3 +70,7 @@ Route::get('/welcome/{name}', function ($name) {
 // Route::post('/photos', [PhotoController::class, 'store']);
 
 // Route::get('/photos', [PhotoController::class, 'index']);
+
+
+Route::post('/register', [AuthenticationController::class, 'register']);
+Route::post('/login', [AuthenticationController::class, 'login']);
