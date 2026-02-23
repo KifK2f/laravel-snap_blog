@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\AuthenticationController;
 
 // ---Routes sans paramètres---
 // Route::get('/foo', function () {

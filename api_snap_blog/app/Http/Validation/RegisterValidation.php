@@ -16,6 +16,8 @@ class RegisterValidation
     public function messages(){
         return [
             'name.required' => 'Vous devez spécifier votre nom',
+            'name.min' => 'Votre nom doit faire au minimum 3 caractères',
+            'name.max' => 'Votre nom doit faire au maximum 150 caractères',
             'email.required' => 'Vous devez spécifier votre adresse email',
             'email.unique' => 'Cet email est déjà utilisé',
             'password.min' => 'Votre mot de passe doit faire au minimum 8 caractères',

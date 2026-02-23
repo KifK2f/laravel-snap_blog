@@ -16,7 +16,7 @@ class AuthenticationController extends Controller
 
         
         if($validator->fails()){
-            return response()->json(['errors' => $validator->errors()]);
+            return response()->json(['errors' => $validator->errors()], 401);
         }
             
 
@@ -36,14 +36,15 @@ class AuthenticationController extends Controller
 
         
         if($validator->fails()){
-            return response()->json(['errors' => $validator->errors()]);
+            return response()->json(['errors' => $validator->errors()], 401);
         }
             
         if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
             $user = User::where('email', $request->input('email'))->firstOrFail();
             return response()->json($user);
         }else{
-            return response()->json(['error' => 'Mauvais identifiants de connexion']);
+            // return response()->json(['errors' => 'Mauvais identifiants de connexion'], 401);
+            return response()->json(['errors' => 'bad_credentials'], 401); // Pour que ce soit plus facile de faire le controle au noveau du Frontend
         }
     }
 
