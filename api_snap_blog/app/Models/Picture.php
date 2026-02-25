@@ -10,6 +10,7 @@ class Picture extends Model
         'title',
         'description',
         'image',
+        'user_id',
     ];
 
     protected $with = [

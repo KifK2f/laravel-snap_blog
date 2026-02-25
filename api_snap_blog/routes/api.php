@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PictureController;
+use App\Http\Controllers\TestController;
 use App\Models\Picture;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 // ---Routes sans paramètres---
 // Route::get('/foo', function () {
@@ -78,6 +79,8 @@ Route::get('/pictures', function(){
     $pictures = Picture::all();
     return response()->json($pictures);
 });
+
+Route::post('/pictures', [PictureController::class, 'store']);
 
 
 Route::post('/register', [AuthenticationController::class, 'register']);
