@@ -12,6 +12,8 @@ class PictureValidation
         ];
     }
 
+    
+
     public function messages(){
         return [
             'title.required' => 'Vous devez spécifier un titre',
@@ -24,6 +26,7 @@ class PictureValidation
             'image.image' => 'Votre format d\'image n\'est pas valide',
             'image.mimes' => ' formats acceptés : jpeg, png, bmp, gif, svg, webp',
             'image.max' => 'La taille de l\'image ne doit pas dépasser 2Mo',
+            'image.uploaded' => 'La taille dépasse la limite serveur (2Mo)',
         ];
     }
 } 

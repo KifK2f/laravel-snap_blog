@@ -80,7 +80,7 @@ Route::get('/pictures', function(){
     return response()->json($pictures);
 });
 
-Route::post('/pictures', [PictureController::class, 'store']);
+Route::post('/pictures', [PictureController::class, 'store'])->middleware('App\Http\Middleware\React');
 
 
 Route::post('/register', [AuthenticationController::class, 'register']);
