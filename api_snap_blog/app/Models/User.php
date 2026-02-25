@@ -46,4 +46,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //Un user peut avoir plusieurs photos
+    public function pictures(){
+        return $this->hasMany('App\Models\Picture');
+    }
+
 }

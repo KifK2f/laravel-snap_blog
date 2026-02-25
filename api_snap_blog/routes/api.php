@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\AuthenticationController;
+use App\Models\Picture;
 
 // ---Routes sans paramètres---
 // Route::get('/foo', function () {
@@ -71,6 +72,12 @@ Route::get('/welcome/{name}', function ($name) {
 // Route::post('/photos', [PhotoController::class, 'store']);
 
 // Route::get('/photos', [PhotoController::class, 'index']);
+
+
+Route::get('/pictures', function(){
+    $pictures = Picture::all();
+    return response()->json($pictures);
+});
 
 
 Route::post('/register', [AuthenticationController::class, 'register']);
